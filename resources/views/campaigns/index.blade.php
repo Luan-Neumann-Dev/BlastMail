@@ -27,12 +27,16 @@
                             <div class="flex items-center space-x-4">
                                 @unless($campaign->trashed())
                                     <x-form
-                                        :action="route('templates.destroy', $campaign)" delete flat
+                                        :action="route('campaigns.destroy', $campaign)" delete flat
                                         onsubmit="return confirm('{{__('Are you sure?')}}')">
-                                        <x-button.secondary type="submit">{{__('Delete')}}</x-button.secondary>
+                                        <x-button.secondary danger type="submit">{{__('Delete')}}</x-button.secondary>
                                     </x-form>
                                 @else
-                                    <x-badge danger>{{__('Deleted')}}</x-badge>
+                                    <x-form
+                                        :action="route('campaigns.restore', $campaign)" patch flat
+                                        onsubmit="return confirm('{{__('Are you sure?')}}')">
+                                        <x-button.secondary type="submit">{{__('Restore')}}</x-button.secondary>
+                                    </x-form>
                                 @endunless
                             </div>
                         </x-table.td>

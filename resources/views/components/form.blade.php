@@ -1,12 +1,13 @@
 @props([
     'post' => null,
     'put' => null,
+    'patch' => null,
     'delete' => null,
     'flat' => false
 ])
 
 @php
-    $method = ($post or $put or $delete) ? "POST" : "GET";
+    $method = ($post or $put or $patch or $delete) ? "POST" : "GET";
 @endphp
 
 <form {{$attributes->class(['gap-4 flex flex-col' => !$flat])}} method="{{$method}}">
@@ -20,6 +21,10 @@
 
     @if($put)
         @method("PUT")
+    @endif
+
+    @if($patch)
+        @method("PATCH")
     @endif
 
     {{$slot}}

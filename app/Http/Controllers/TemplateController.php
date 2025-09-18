@@ -21,7 +21,7 @@ class TemplateController extends Controller
                 ->orWhere('id', '=', $search)
             )
             ->paginate(7)
-            ->appends(compact('search'));
+            ->appends(compact('search', 'withTrashed'));
 
         return view('templates.index', [
             'templates' => $templates,
