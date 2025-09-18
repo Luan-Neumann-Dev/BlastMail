@@ -11,26 +11,28 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <!-- Dashboard -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <!-- Dashboard -->
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                </div>
 
-                <!-- Email List -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <!-- Campaigns -->
+                    <x-nav-link :href="route('campaigns.index')" :active="request()->routeIs('campaigns.*')">
+                        {{ __('Campaigns') }}
+                    </x-nav-link>
+
+                    <!-- Email List -->
                     <x-nav-link :href="route('email-list.index')" :active="request()->routeIs('email-list.*')">
                         {{ __('Email List') }}
                     </x-nav-link>
-                </div>
 
-                <!-- Templates -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('template.index')" :active="request()->routeIs('template.*')">
+                    <!-- Templates -->
+                    <x-nav-link :href="route('templates.index')" :active="request()->routeIs('templates.*')">
                         {{ __('Templates') }}
                     </x-nav-link>
                 </div>
+
             </div>
 
             <!-- Settings Dropdown -->
@@ -87,13 +89,18 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
+            <!-- Campaigns -->
+            <x-responsive-nav-link :href="route('campaigns.index')" :active="request()->routeIs('campaigns.*')">
+                {{ __('Campaigns') }}
+            </x-responsive-nav-link>
+
             <!-- Email List -->
             <x-responsive-nav-link :href="route('email-list.index')" :active="request()->routeIs('email-list.*')">
                 {{ __('Email List') }}
             </x-responsive-nav-link>
 
             <!-- Templates -->
-            <x-responsive-nav-link :href="route('template.index')" :active="request()->routeIs('template.*')">
+            <x-responsive-nav-link :href="route('templates.index')" :active="request()->routeIs('templates.*')">
                 {{ __('Templates') }}
             </x-responsive-nav-link>
         </div>
