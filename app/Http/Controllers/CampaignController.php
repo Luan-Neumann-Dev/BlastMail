@@ -24,6 +24,12 @@ class CampaignController extends Controller
         return view('campaigns.index', compact(['campaigns', 'search', 'withTrashed']));
     }
 
+    public function create(?string $tab = null) {
+        return view('campaigns.create', [
+            'tab' => $tab
+        ]);
+    }
+
     public function destroy(Campaign $campaign) {
         $campaign->delete();
 
